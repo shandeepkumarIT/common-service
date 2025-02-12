@@ -2,6 +2,8 @@ package com.dreamlayer.api.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -13,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(Include.NON_NULL)
 public class CommonResponse {
 
 	@JsonProperty("status")
@@ -21,8 +24,11 @@ public class CommonResponse {
 	@JsonProperty("status_code")
     private int status_code;
 	
-	@JsonProperty("status_description")
-    private String status_description;
+	@JsonProperty("title")
+    private String title;
+	
+	@JsonProperty("message")
+    private String message;
 	
 	@JsonProperty("response")
     private List<?> response;
